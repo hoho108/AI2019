@@ -61,10 +61,8 @@ app = Flask(__name__)  # __name__ 代表目前執行的模組
 
 ###=== (5.3) LINE介面密碼 ===### (參考3.3)
 ##== (1) Channel Access Token
-#line_bot_api = LineBotApi("Nr6mCIsNGslpKJagqwGXYLetpQx0UF2bfmvDAupvFIMmZ/ntSDWrVcRAPOI+OUeklrEWYaU96foNY0rOD+4wXNNPkvAKVGdFbXkcu3r9fblG+zBFT7dx4wjhXksPINOC4G3q6XffuRn/WDIJXoXNEQdB04t89/1O/w1cDnyilFU=")  #-- YOUR_CHANNEL_ACCESS_TOKEN
 line_bot_api = LineBotApi("Su7C/KeHlykwq0AwBinAZQ/lqkBn/gmufc7+J+NuzvU3euHnYvp/9Wdvwd+Xq9e9ePqzBdzTYe6oxeOsy8gMaK43wNbJ8iIDUnpwMY1FDKkQKrRfK/jAp95kGWyAoxfC1hJulBL6Ts9lWrXXfkcs/wdB04t89/1O/w1cDnyilFU=")
 ##== (2) Channel Secret
-#handler = WebhookHandler("48f6b1096e13a1d04269785c75363a8c")  #-- YOUR_CHANNEL_SECRET
 handler = WebhookHandler("73e5b02eec568c95b0602453d7699e3f")
 ###=== (5.4) 監聽來自 /callback 的 Post Request  ===###
 @app.route("/callback", methods=['POST']) 
@@ -92,12 +90,12 @@ def handle_message(event):
         return
     text = event.message.text
     if (text=="Hi"):
-        reply_text = "Hello"
+        reply_text = ""
         #Your user ID
     elif(text=="你好"): 
         reply_text = "你好啊..."
-    elif(text=="機器人"):
-        reply_text = "有！我是機器人，在！"
+    elif(text=="狗狗"):
+        reply_text = "凹嗚～"
     else:  # 如果非以上的選項，就會學你說話
         reply_text = text
     message = TextSendMessage(reply_text)
