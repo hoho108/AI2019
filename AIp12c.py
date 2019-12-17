@@ -143,9 +143,8 @@ def handle_message(event):
     else: # 如果非以上的選項，就會學你說話
         reply_text = text
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-        # line_bot_api.push_message(event.push_token, StickerSendMessage(package_id=3, sticker_id=203))
     try:
-        line_bot_api.push_message(user_id, TextSendMessage(text="push的訊息！"))
+        line_bot_api.push_message(user_id, TextSendMessage(text="push測試訊息"))
     except LineBotApiError as e:
         # error handle
         raise e     
