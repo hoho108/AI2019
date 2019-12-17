@@ -90,12 +90,12 @@ def handle_message(event):
         return
     text = event.message.text
     happy = ["可愛","喜歡","愛"]
-    i = 0
     h = 0
     for i in happy:
     if text.find(i) != -1:
         if text[text.find(i)-1] != "不":
             h = 1
+            break
     if h == 1:
         reply_text = "^__^"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
