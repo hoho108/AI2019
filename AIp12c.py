@@ -89,13 +89,15 @@ def handle_message(event):
     if event.message.id == "100001":
         return
     text = event.message.text
-    if (text.find("狗狗") != -1):
+    if(text.find("狗狗") != -1):
         reply_text = "凹嗚～"
         #Your user ID
     elif(text.find("吃飯") != -1): 
         reply_text = "（踏踏踏踏...）"
     elif(text.find("散步") != -1):
         reply_text = "汪！"
+    elif(text == "貼圖"):
+        reply_message(event.reply_token,StickerSendMessage(package_id=1, sticker_id=2))
     else:  # 如果非以上的選項，就會學你說話
         reply_text = text
     message = TextSendMessage(reply_text)
