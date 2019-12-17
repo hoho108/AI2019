@@ -103,16 +103,13 @@ def handle_message(event):
     for i in sad:
         if h == 1:
             break
-        if text.find != -1:
+        if text.find(i) != -1:
             if text[text.find(i)-1] != "不":
                 h = -1
                 break
             else:
                 h = 0
                 break
-        else:
-            h = -1
-            break
     if h == 1:
         reply_text = "^__^"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
