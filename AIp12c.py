@@ -90,16 +90,33 @@ def handle_message(event):
         return
     text = event.message.text
     happy = ["可愛","喜歡","愛"]
+    sad = ["討厭","拋棄","丟掉"]
     h = 0
     for i in happy:
         if text.find(i) != -1:
             if text[text.find(i)-1] != "不":
-                h = 1
+               h = 1
+               break
+            else:
+                h = -1
+                break     
+    for i in sad:
+        if h == 1:
+            break
+        if text.find != -1:
+            if text[text.find(i)-1] != "不":
+                h = -1
                 break
+            else:
+                h = 0
+                break
+        else:
+            h = -1
+            break
     if h == 1:
         reply_text = "^__^"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-    else:
+    elif h == -1:
         reply_text = "T__T"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     h = 0
