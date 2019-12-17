@@ -129,6 +129,9 @@ def handle_message(event):
     elif(text.find("散步") != -1):
         reply_text = "汪！"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+    elif(text.find("握手") != -1):
+        reply_text = "（伸出右手）"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     elif(text.find("左") != -1):
         reply_text = "（伸出左手）"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
