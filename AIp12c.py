@@ -116,6 +116,12 @@ def handle_message(event):
     elif h == -1:
         reply_text = "T__T"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+        
+    try:
+        line_bot_api.push_message(event.push_token, TextSendMessage(text="push的訊息！"))
+    except LineBotApiError as e:
+        # error handle
+        raise e
     h = 0
     if (text.find("壞") != -1):
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=11537, sticker_id=52002746))
@@ -144,12 +150,6 @@ def handle_message(event):
         # line_bot_api.push_message(event.push_token, StickerSendMessage(package_id=3, sticker_id=203)) 
     # message = TextSendMessage(reply_text)
     # line_bot_api.reply_message(event.reply_token, message)
-    
-    try:
-        line_bot_api.push_message(event.push_token, TextSendMessage(text='push的訊息！'))
-    except LineBotApiError as e:
-        # error handle
-        raise e
 
 ###=== (5.6) 執行程式  ===###
 import os
