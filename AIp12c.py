@@ -99,6 +99,8 @@ def handle_message(event):
     elif(text.find("散步") != -1):
         reply_text = "汪！"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+    elif(text.find("不行") != -1):
+        line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=11537, sticker_id=52002746))
     else: # 如果非以上的選項，就會學你說話
         reply_text = text
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
