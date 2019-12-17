@@ -88,9 +88,15 @@ def handle_message(event):
     print(event)
     if event.message.id == "100001":
         return
+    user_id = event.source.user_id
     text = event.message.text
     happy = ["可愛","喜歡","愛","乖"]
     sad = ["討厭","拋棄","丟掉"]
+    try:
+        line_bot_api.push_message(user_id, TextSendMessage(text="push的訊息！"))
+    except LineBotApiError as e:
+        # error handle
+        raise e     
     h = 0
     for i in happy:
         if text.find(i) != -1:
@@ -116,12 +122,6 @@ def handle_message(event):
     elif h == -1:
         reply_text = "T__T"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-        
-    try:
-        line_bot_api.push_message(event.reply_token, TextSendMessage(text="push的訊息！"))
-    except LineBotApiError as e:
-        # error handle
-        raise e
     h = 0
     if (text.find("壞") != -1):
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=11537, sticker_id=52002746))
