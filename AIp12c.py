@@ -120,7 +120,7 @@ def handle_message(event):
         reply_text = "T__T"
         line_bot_api.push_message(user_id, TextSendMessage(reply_text))
         for i in range(10):
-            line_bot_api.push_message(user_id, TextSendMessage(i))
+            line_bot_api.push_message(user_id, TextSendMessage(10-i))
             time.sleep(1)
         line_bot_api.push_message(user_id, TextSendMessage("冷卻完畢..."))
         h = 0
