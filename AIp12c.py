@@ -56,7 +56,6 @@ from linebot import ( LineBotApi, WebhookHandler )
 from linebot.exceptions import( InvalidSignatureError )
 from linebot.models import *
 
-
 ###=== (5.2) 程式宣告 ===###  
 app = Flask(__name__)  # __name__ 代表目前執行的模組
 
@@ -94,9 +93,6 @@ def handle_message(event):
         reply_text = "凹嗚～"
         #Your user ID
     elif(text.find("吃飯") != -1): 
-        reply_text = "（踏踏踏踏...）"
-        reply_text = "（開始吃）"
-        reply_text = "（碗空了）"
         reply_text = "（踏踏踏踏...）"
     elif(text.find("散步") != -1):
         reply_text = "汪！"
