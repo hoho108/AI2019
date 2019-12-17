@@ -126,6 +126,10 @@ def handle_message(event):
         h = 0
     elif (text.find("壞") != -1):
         line_bot_api.push_message(user_id, StickerSendMessage(package_id=11537, sticker_id=52002746))
+        for i in range(10):
+            # line_bot_api.push_message(user_id, TextSendMessage(10-i))
+            time.sleep(1)
+        line_bot_api.push_message(user_id, StickerSendMessage(package_id=3, sticker_id=203))
     elif (text.find("狗狗") != -1):
         reply_text = "凹嗚～"
         line_bot_api.push_message(user_id, TextSendMessage(reply_text))
