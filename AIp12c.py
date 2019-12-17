@@ -144,6 +144,12 @@ def handle_message(event):
         # line_bot_api.push_message(event.push_token, StickerSendMessage(package_id=3, sticker_id=203)) 
     # message = TextSendMessage(reply_text)
     # line_bot_api.reply_message(event.reply_token, message)
+    
+    try:
+        line_bot_api.push_message(event.push_token, TextSendMessage(text='push的訊息！'))
+    except LineBotApiError as e:
+        # error handle
+        raise e
 
 ###=== (5.6) 執行程式  ===###
 import os
