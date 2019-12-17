@@ -101,9 +101,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     else: # 如果非以上的選項，就會學你說話
         reply_text = text
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-        # line_bot_api.reply_message(event.reply_token,StickerSendMessage(package_id=3, sticker_id=203))
-        line_bot_api.push_message(event.push_token, StickerSendMessage(package_id=3, sticker_id=203))  
+        line_bot_api.push_message(event.push_token, TextSendMessage(reply_text))
+        line_bot_api.push_message(event.push_token, StickerSendMessage(package_id=3, sticker_id=203)) 
     # message = TextSendMessage(reply_text)
     # line_bot_api.reply_message(event.reply_token, message)
 
