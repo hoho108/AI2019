@@ -89,6 +89,20 @@ def handle_message(event):
     if event.message.id == "100001":
         return
     text = event.message.text
+    happy = ["可愛","喜歡","愛"]
+    i = 0
+    h = 0
+    for i in happy:
+    if text.find(i) != -1:
+        if text[text.find(i)-1] != "不":
+            h = 1
+    if h == 1:
+        reply_text = "^__^"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+    else:
+        reply_text = "T__T"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+    h = 0
     if (text.find("壞") != -1):
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=11537, sticker_id=52002746))
     elif (text.find("狗狗") != -1):
