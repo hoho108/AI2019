@@ -129,6 +129,12 @@ def handle_message(event):
     elif(text.find("散步") != -1):
         reply_text = "汪！"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+    elif(text.find("左") != -1):
+        reply_text = "（伸出左手）"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
+    elif(text.find("右") != -1):
+        reply_text = "（伸出右手）"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
     else: # 如果非以上的選項，就會學你說話
         reply_text = text
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
