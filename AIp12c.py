@@ -89,7 +89,7 @@ def handle_message(event):
     if event.message.id == "100001":
         return
     text = event.message.text
-    happy = ["可愛","喜歡","愛"]
+    happy = ["可愛","喜歡","愛","乖"]
     sad = ["討厭","拋棄","丟掉"]
     h = 0
     for i in happy:
