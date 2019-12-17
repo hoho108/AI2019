@@ -120,9 +120,9 @@ def handle_message(event):
         reply_text = "T__T"
         line_bot_api.push_message(user_id, TextSendMessage(reply_text))
         for i in range(10):
-            line_bot_api.push_message(user_id, TextSendMessage(10-i))
+            # line_bot_api.push_message(user_id, TextSendMessage(10-i))
             time.sleep(1)
-        line_bot_api.push_message(user_id, TextSendMessage("冷卻完畢..."))
+        line_bot_api.push_message(user_id, StickerSendMessage(package_id=3, sticker_id=203))
         h = 0
     elif (text.find("壞") != -1):
         line_bot_api.push_message(user_id, StickerSendMessage(package_id=11537, sticker_id=52002746))
