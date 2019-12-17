@@ -89,7 +89,7 @@ def handle_message(event):
     if event.message.id == "100001":
         return
     text = event.message.text
-    if (text=="狗狗"):
+    if (text.find("狗狗") != -1):
         reply_text = "凹嗚～"
         #Your user ID
     elif(text.find("吃飯") != -1): 
