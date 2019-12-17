@@ -118,7 +118,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
         
     try:
-        line_bot_api.push_message(event.push_token, TextSendMessage(text="push的訊息！"))
+        line_bot_api.push_message(push_token, TextSendMessage(text="push的訊息！"))
     except LineBotApiError as e:
         # error handle
         raise e
