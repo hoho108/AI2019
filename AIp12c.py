@@ -89,7 +89,9 @@ def handle_message(event):
     if event.message.id == "100001":
         return
     text = event.message.text
-    if (text.find("狗狗") != -1):
+    if (text.find("壞") != -1):
+        line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=11537, sticker_id=52002746))
+    elif (text.find("狗狗") != -1):
         reply_text = "凹嗚～"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
         # Your user ID
@@ -99,12 +101,10 @@ def handle_message(event):
     elif(text.find("散步") != -1):
         reply_text = "汪！"
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-    elif(text.find("不行") != -1):
-        line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=11537, sticker_id=52002746))
     else: # 如果非以上的選項，就會學你說話
         reply_text = text
         line_bot_api.reply_message(event.reply_token, TextSendMessage(reply_text))
-        line_bot_api.push_message(event.push_token, StickerSendMessage(package_id=3, sticker_id=203)) 
+        # line_bot_api.push_message(event.push_token, StickerSendMessage(package_id=3, sticker_id=203)) 
     # message = TextSendMessage(reply_text)
     # line_bot_api.reply_message(event.reply_token, message)
 
