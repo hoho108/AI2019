@@ -96,8 +96,6 @@ def handle_message(event):
     elif(text.find("吃飯") != -1): 
         reply_text = "（踏踏踏踏...）"
         reply_text = "（開始吃）"
-        for i in range(5,0,-1):
-            time.sleep(1)
         reply_text = "（碗空了）"
         reply_text = "（踏踏踏踏...）"
     elif(text.find("散步") != -1):
